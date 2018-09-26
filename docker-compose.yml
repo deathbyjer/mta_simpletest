@@ -1,0 +1,22 @@
+version: '3'
+services:
+    web:
+        build: 
+            context: .
+            dockerfile: ./builds/Dockerfile-web
+        ports:
+            - "5005:5000"
+        volumes:
+            - .:/code
+        depends_on:
+            - redis
+    cron:
+        build:
+            context: .
+            dockerfile: ./builds/Dockerfile-cron
+        volumes:
+            - .:/code
+        depends_on:
+            - redis
+    redis:
+        image: redis

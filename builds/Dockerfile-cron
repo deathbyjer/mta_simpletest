@@ -1,0 +1,9 @@
+FROM joyzoursky/python-chromedriver:3.7-selenium
+
+RUN apt-get install -y libxml2-dev libxslt1-dev cron
+
+ADD . /code
+WORKDIR /code
+RUN pip install -r requirements.txt
+RUN python setup.py
+CMD cron -f

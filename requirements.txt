@@ -1,0 +1,6 @@
+Flask==1.0.2
+redis
+lxml
+selenium
+beautifulsoup4
+python-crontab
